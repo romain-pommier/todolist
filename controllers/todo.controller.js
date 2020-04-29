@@ -37,8 +37,10 @@ exports.todoDelete = async (req, res, next) => {
         const todoId = req.params.todoId;
         await deleteTodoList(todoId);
         const todoList = await getTodoList()
+        const todoListDone = await getTodoListDone()
         res.render("index", {
-            todoList
+            todoList,
+            todoListDone
         })
     }
     catch (e) {

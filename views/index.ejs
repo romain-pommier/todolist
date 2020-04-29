@@ -26,9 +26,9 @@
         <h2 class=""> A faire</h2>
         <div class="row ">
             <% for(var i=0; i < todoList.length; i++) {%>
-            <div class="col-md-4 m-3 d-flex justify-content-between" style="background-color: rgb(218, 214, 214);">
-                <div>
-                    <h3 class="title"><%= todoList[i].title %></h3>
+            <div class="col-md-4 m-3 d-flex card justify-content-between bg-secondary">
+                <div class="card-body">
+                    <h3 class="card-title"><%= todoList[i].title %></h3>
                     <form method="POST" class="formUpdate" action="/update" style="display: none;">
                         <input name="newTitle" type="text" value="<%= todoList[i].title %>">
                         <input type="text" name="todoId" value="<%= todoList[i].id %>" style="display:none">
@@ -53,9 +53,9 @@
             <h2 class=""> Fait </h2>
             <div class="row ">
                 <% for(var i=0; i < todoListDone.length; i++) {%>
-                <div class="col-md-4 m-3 d-flex justify-content-between" style="background-color: rgb(218, 214, 214);">
-                    <div>
-                        <h3 class="title"><%= todoListDone[i].title %></h3>
+                <div class="col-md-4 m-3 p-3 d-flex card justify-content-between bg-info">
+                    <div class="card-body">
+                        <h3 class="card-title"><%= todoListDone[i].title %></h3>
                         <form method="POST" class="formUpdate" action="/update" style="display: none;">
                             <input name="newTitle" type="text" value="<%= todoListDone[i].title %>">
                             <input type="text" name="todoId" value="<%= todoListDone[i].id %>" style="display:none">
