@@ -1,0 +1,59 @@
+<div>
+        <h2 class=""> A faire</h2>
+        <div class="row ">
+            <% for(var i=0; i < todoList.length; i++) {%>
+            <div class="col-md-4 m-3 d-flex justify-content-between" style="background-color: rgb(218, 214, 214);">
+                <div>
+                    <h3 class="title"><%= todoList[i].title %></h3>
+                    <form method="POST" class="formUpdate" action="/update" style="display: none;">
+                        <input name="newTitle" type="text" value="<%= todoList[i].title %>">
+                        <input type="text" name="todoId" value="<%= todoList[i].id %>" style="display:none">
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+                <div>
+                    <btn class=" btnUpdate btn btn-primary">Modifier le nom </btn>
+                    <btn todoId="<%= todoList[i].id %>" class=" btnDelete btn btn-danger">Supprimer</btn>
+                    <form action="/done" method="POST">
+                        <input type="text" name="todoId" value="<%= todoList[i].id %>" style="display:none">
+                        <input type="text" name="todoDone" value="<%= !todoList[i].done %>" style="display:none">
+                        <input type="submit" class="btn btn-success" value="Fait">
+                    </form>
+                </div>
+
+            </div>
+            <%} %>
+        </div>
+
+        <div>
+            <h2 class=""> Fait </h2>
+            <div class="row ">
+                <% for(var i=0; i < todoListDone.length; i++) {%>
+                <div class="col-md-4 m-3 d-flex justify-content-between" style="background-color: rgb(218, 214, 214);">
+                    <div>
+                        <h3 class="title"><%= todoListDone[i].title %></h3>
+                        <form method="POST" class="formUpdate" action="/update" style="display: none;">
+                            <input name="newTitle" type="text" value="<%= todoListDone[i].title %>">
+                            <input type="text" name="todoId" value="<%= todoListDone[i].id %>" style="display:none">
+                            <input type="submit" class="btn btn-primary">
+                        </form>
+                    </div>
+                    <div>
+                        <btn class=" btnUpdate btn btn-primary">Modifier le nom </btn>
+                        <btn todoId="<%= todoListDone[i].id %>" class=" btnDelete btn btn-danger">Supprimer</btn>
+                        <form action="/done" method="POST">
+                            <input type="text" name="todoId" value="<%= todoListDone[i].id %>" style="display:none">
+                            <input type="text" name="todoDone" value="<%= !todoListDone[i].done %>"
+                                style="display:none">
+                            <input type="submit" class="btn btn-success" value="A Faire">
+                        </form>
+
+                    </div>
+
+                </div>
+                <%} %>
+            </div>
+
+        </div>
+
+
